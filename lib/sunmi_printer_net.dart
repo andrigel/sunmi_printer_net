@@ -86,7 +86,7 @@ class SunmiPrinterNet {
 
   static Future<void> commit() async {
     await _methodChannel.invokeMethod<void>(
-      'addSpacing',
+      'commit',
     );
   }
 }
