@@ -34,11 +34,12 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        minSdkVersion 19
+        minSdkVersion 21
     }
 }
 
 dependencies {
+    // compileOnly files('libs/externalprinterlibrary2-1.0.7-release.aar')
     implementation(name:'externalprinterlibrary2-1.0.7-release', ext:'aar')
     implementation(name:'BluetoothBinding', ext:'aar')
     implementation 'androidx.appcompat:appcompat:1.5.1'
