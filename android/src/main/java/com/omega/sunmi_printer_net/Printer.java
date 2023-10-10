@@ -83,6 +83,7 @@ public class Printer implements ResultCallback {
             @Override
             public void onConnect() {
                 cloudPrinter.initStyle();
+                cloudPrinter.setEncodeMode(EncodeType.ASCII);
                 uiThreadHandler.post(() -> eventSink.success("connected"));
                 Log.d(tag,"onConnect");
             }
