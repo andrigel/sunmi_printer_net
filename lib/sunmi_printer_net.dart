@@ -49,7 +49,7 @@ class SunmiPrinterNet {
   }
 
   static Future<void> setEncodeMode(SunmiEncoding encoding) async {
-    await _methodChannel.invokeMapMethod(
+    await _methodChannel.invokeMethod(
       'setEncodeMode',
       {
         'encode_mode': _encodingsToString[encoding],
