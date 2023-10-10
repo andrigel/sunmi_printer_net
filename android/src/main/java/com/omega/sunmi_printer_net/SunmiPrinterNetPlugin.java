@@ -47,13 +47,17 @@ public class SunmiPrinterNetPlugin implements FlutterPlugin, MethodCallHandler, 
     } else if (call.method.equals("connect"))
     {
       printer.connect();
-
       result.success("");
     } else if (call.method.equals("disconnect"))
     {
       printer.disconnect();
       result.success("");
-    } else if (call.method.equals("addText"))
+    }else if (call.method.equals("setEncodeMode"))
+    {
+      printer.setEncodeMode(call.argument("encode_mode"));
+      result.success("");
+    }
+     else if (call.method.equals("addText"))
     {
       String text = call.argument("text");
       printer.addText(text);

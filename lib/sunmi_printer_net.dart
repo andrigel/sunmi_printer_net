@@ -48,6 +48,15 @@ class SunmiPrinterNet {
     await _methodChannel.invokeMethod<void>('disconnect');
   }
 
+  static Future<void> setEncodeMode(SunmiEncoding encoding) async {
+    await _methodChannel.invokeMapMethod(
+      'setEncodeMode',
+      {
+        'encode_mode': _encodingsToString[encoding],
+      },
+    );
+  }
+
   static Future<void> addText(String text) async {
     await _methodChannel.invokeMethod<void>(
       'addText',
@@ -104,6 +113,26 @@ enum PrinterAlignment {
   left,
   right,
 }
+
+enum SunmiEncoding {
+  ascii,
+  gb18030,
+  big5,
+  shiftJis,
+  jis0208,
+  ksc5601,
+  utf8,
+}
+
+const Map<SunmiEncoding, String> _encodingsToString = {
+  SunmiEncoding.ascii: 'ASCII',
+  SunmiEncoding.gb18030: 'GB18030',
+  SunmiEncoding.big5: 'BIG5',
+  SunmiEncoding.shiftJis: 'SHIFT_JIS',
+  SunmiEncoding.jis0208: 'JIS_0208',
+  SunmiEncoding.ksc5601: 'KSC_5601',
+  SunmiEncoding.utf8: 'UTF_8',
+};
 
 const Map<PrinterAlignment, String> _alignmentToString = {
   PrinterAlignment.center: 'cener',
